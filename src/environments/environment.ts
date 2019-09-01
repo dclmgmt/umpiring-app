@@ -15,5 +15,5 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
-//http://localhost:5000
+//http://localhost:5000/api/
 //  baseUrl: 'https://umpiringapi.azurewebsites.net/api/'

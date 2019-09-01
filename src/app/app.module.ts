@@ -18,6 +18,7 @@ import {
   MatIconModule,
   MatButtonModule,
   MatCardModule,
+  MatSelectModule,
   MatFormFieldModule } from '@angular/material';
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
+    MatSelectModule,
     BrowserAnimationsModule
   ],
   providers: [ {

@@ -24,14 +24,15 @@ export class AuthService {
   }
 
   register(data: any): Observable<any> {
-      const registerModel: IRegister = {
-      Email: data.email,
-      FullName: data.fullName,
-      Password: data.password,
-      RoleId: data.roleId
-   } ;
 
-      return this.http.post<any>(this.apiUrl + 'register', registerModel)
+  //     const registerModel: IRegister = {
+  //     Email: data.email,
+  //     FullName: data.fullName,
+  //     Password: data.password,
+  //     RoleId: data.roleId
+  //  } ;
+
+      return this.http.post<any>(this.apiUrl + 'register', data)
       .pipe(
         tap(_ => this.log('register')),
         catchError(this.handleError('register', []))

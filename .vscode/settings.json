@@ -1,4 +1,4 @@
 {
-    "appService.defaultWebAppToDeploy": "/subscriptions/a3b547ba-3975-4e79-9ffa-c3102846ecb2/resourceGroups/Default-Web-SouthCentralUS/providers/Microsoft.Web/sites/rentanumpire",
+    "appService.defaultWebAppToDeploy": "None",
     "appService.deploySubpath": "dist\\UmpiringApp"
 }

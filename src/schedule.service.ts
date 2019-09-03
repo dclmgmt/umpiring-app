@@ -14,10 +14,20 @@ export class ScheduleService {
   // apiUrl = 'http://192.168.0.5:5000/api/Book';
   apiUrl = environment.baseUrl + 'Schedule';
 
+
   constructor(private http: HttpClient) { }
 
   getSchedule(): Observable<Schedule[]> {
+    this.apiUrl = environment.baseUrl + 'Schedule';
     return this.http.get<Schedule[]>(this.apiUrl)
+      .pipe(
+        tap(_ => this.log('fetched Schedule')),
+        catchError(this.handleError('getSchedule', []))
+      );
+  }
+  getTeams(): Observable<string[]> {
+    this.apiUrl = environment.baseUrl + 'Schedule' + '/getTeamNames';
+    return this.http.get<string[]>(this.apiUrl)
       .pipe(
         tap(_ => this.log('fetched Schedule')),
         catchError(this.handleError('getSchedule', []))

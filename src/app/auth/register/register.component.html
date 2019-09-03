@@ -1,4 +1,4 @@
-<p>register works!</p>
+<p>Registration</p>
 <div class="example-container mat-elevation-z8">
   <div class="example-loading-shade"
        *ngIf="isLoadingResults">
@@ -21,12 +21,32 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput type="password" placeholder="Password" formControlName="password"
-               [errorStateMatcher]="matcher">
-        <mat-error>
-          <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Please enter your password</span>
-        </mat-error>
-      </mat-form-field>
+          <input matInput type="fullName" placeholder="Password" formControlName="password"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Please enter your password</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="payPalId" placeholder="Paypal Id" formControlName="payPalId"
+                    [errorStateMatcher]="matcher">
+            <mat-error>
+              <span *ngIf="!registerForm.get('payPalId').valid && registerForm.get('payPalId').touched">Please enter your Paypal Id</span>
+            </mat-error>
+          </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="fullName" placeholder="Certified" formControlName="certified"
+            >
+            <mat-checkbox formControlName="certified">Certified!</mat-checkbox>
+        </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput   [errorStateMatcher]="matcher"
+          placeholder="Phone Number" type="phone"  pattern="^\d{10}$"
+          formControlName="phoneNumber"  >
+            <mat-error>
+                <span *ngIf="(!registerForm.get('phoneNumber').valid && registerForm.get('phoneNumber').touched) || registerForm.get('phoneNumber').hasError('pattern')">Phone mumber is required and should be 10 digits long</span>
+              </mat-error>
+        </mat-form-field>
       <mat-form-field class="example-full-width">
           <mat-select type="fullName" placeholder="Role" formControlName="roleId" >
           <mat-option *ngFor="let role of roles" [value]="role.value">
@@ -34,6 +54,25 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <mat-select type="depositPayment" placeholder="Deposit Payment" formControlName="paymentMethodId" >
+          <mat-option *ngFor="let paymentMethod of paymentMethods" [value]="paymentMethod.value"         >
+            {{paymentMethod.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput type="teamNames" placeholder="Team Names" formControlName="teamNames"
+               [errorStateMatcher]="matcher">
+          <div *ngFor="let teamName of teamNames; let i = index">
+              <mat-checkbox class="example-margin"
+              (change)="onChange($event, i, teamName)" [checked]="registerForm.get('teamNames').value.indexOf(teamName) > -1"
+              >
+              {{teamName}}
+            </mat-checkbox>
+          </div>
+      </mat-form-field>
+
 
       <div class="button-row">
         <button type="submit" [disabled]="!registerForm.valid" mat-flat-button color="primary">Register</button>

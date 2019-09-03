@@ -19,6 +19,7 @@ import {
   MatButtonModule,
   MatCardModule,
   MatSelectModule,
+  MatCheckboxModule,
   MatFormFieldModule } from '@angular/material';
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {
     MatCardModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatCheckboxModule,
     BrowserAnimationsModule
   ],
   providers: [ {

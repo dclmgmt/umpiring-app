@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Schedule } from './schedule';
+// import { Schedule } from './schedule';
 import { ScheduleService } from 'src/schedule.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/auth.service';
+import { Assigment } from '../shared/assignment';
 
 @Component({
   selector: 'app-schedule',
@@ -10,7 +11,7 @@ import { AuthService } from 'src/auth.service';
   styleUrls: ['./schedule.component.css']
 })
 export class ScheduleComponent implements OnInit {
-  data: Schedule[] = [];
+  data: Assigment[] = [];
   displayedColumns: string[] = ['bookId', 'isbn', 'title'];
   isLoadingResults = true;
 

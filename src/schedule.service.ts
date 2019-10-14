@@ -4,6 +4,7 @@ import { Schedule } from './app/schedule/schedule';
 import { environment } from './environments/environment.prod';
 import { catchError, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { Assigment } from './app/shared/assignment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,17 +18,17 @@ export class ScheduleService {
 
   constructor(private http: HttpClient) { }
 
-  getSchedule(): Observable<Schedule[]> {
+  getSchedule(): Observable<Assigment[]> {
     this.apiUrl = environment.baseUrl + 'Schedule';
-    return this.http.get<Schedule[]>(this.apiUrl)
+    return this.http.get<Assigment[]>(this.apiUrl)
       .pipe(
         tap(_ => this.log('fetched Schedule')),
         catchError(this.handleError('getSchedule', []))
       );
   }
-  getTeams(): Observable<string[]> {
+  getTeams(): Observable<Assigment[]> {
     this.apiUrl = environment.baseUrl + 'Schedule' + '/getTeamNames';
-    return this.http.get<string[]>(this.apiUrl)
+    return this.http.get<Assigment[]>(this.apiUrl)
       .pipe(
         tap(_ => this.log('fetched Schedule')),
         catchError(this.handleError('getSchedule', []))

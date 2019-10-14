@@ -32,9 +32,5 @@ export class ScheduleComponent implements OnInit {
       });
   }
 
-  logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['login']);
-  }
 
 }

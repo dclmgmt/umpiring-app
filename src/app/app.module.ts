@@ -9,6 +9,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import {
   MatInputModule,
   MatPaginatorModule,
@@ -17,16 +18,22 @@ import {
   MatTableModule,
   MatIconModule,
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatMenuModule,
   MatSelectModule,
-  MatCheckboxModule,
-  MatFormFieldModule } from '@angular/material';
+  MatCheckboxModule, MatListModule,
+  MatFormFieldModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     ScheduleComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SidenavListComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -46,8 +53,12 @@ import {
     MatFormFieldModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatListModule,
+    MatSidenavModule,
+    MatMenuModule,
     BrowserAnimationsModule
   ],
+  exports: [MatSidenavModule, MatMenuModule],
   providers: [ {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

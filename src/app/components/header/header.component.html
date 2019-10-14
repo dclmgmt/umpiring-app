@@ -1,0 +1,28 @@
+
+<div class="example-container mat-elevation-z8">
+    <h2 style="display: inline-block">
+        <img src="../../assets/img/DCLNewLogo.png" alt="no logo">
+        Welcome to Rental Umpiring!
+      </h2>
+
+
+
+
+
+
+
+
+<div class="example-loading-shade"
+*ngIf="isLoadingResults">
+<mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+<div class="button-row" style="text-align: left;" *ngIf="showLogo | async">
+
+<button   color="primary"  mat-flat-button  [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+ <button mat-menu-item>Item 1</button>
+ <button mat-menu-item>Item 2</button>
+</mat-menu>
+<a  style="float:right" mat-flat-button color="primary" (click)="logout()">Logout</a>
+</div>
+</div>
